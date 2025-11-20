@@ -86,7 +86,12 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKERHUB_USERNAME }}/parcel-tracker
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/go1fl-sprint12
+          tags: |
+            type=ref,event=tag
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
       
       - name: Build and push
         uses: docker/build-push-action@v5
