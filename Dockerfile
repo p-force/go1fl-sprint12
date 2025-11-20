@@ -11,7 +11,7 @@ RUN go mod download || true
 COPY *.go ./
 
 # Build the application
-RUN CGO_ENABLED=1 GOOS=linux go build -o /app/parcel-tracker .
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /app/parcel-tracker .
 
 # Final stage
 FROM alpine:latest
