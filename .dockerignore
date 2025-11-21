@@ -1,0 +1,7 @@
+.git
+.github
+*.db
+*.md
+.gitignore
+.dockerignore
+
